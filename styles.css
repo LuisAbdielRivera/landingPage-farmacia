@@ -11,7 +11,7 @@ body {
 .header {
   border-bottom: 1px solid #ddd;
   background: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra para darle profundidad */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .header-container {
@@ -24,39 +24,100 @@ body {
 .logo {
   font-size: 1.75rem;
   font-weight: bold;
-  color: #06c8d9; /* Combina con los botones */
+  color: #06c8d9;
   text-transform: uppercase;
 }
 
-.navigation {
-  display: flex;
-  gap: 1rem;
+.cta {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
 }
 
+.cta span {
+  letter-spacing: 4px;
+  font-size: 14px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.hover-underline-animation {
+  position: relative;
+  color: black;
+  display: inline-block;
+}
+
+.hover-underline-animation:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #06c8d9;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease-out;
+}
+
+.cta:hover .hover-underline-animation:after {
+  transform: scaleX(1);
+  transform-origin: center;
+}
+
+/* Estilos para la navbar */
 .nav-link {
   text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s;
+  color: black;
+  margin-right: 15px;
 }
 
-.nav-link:hover {
-  color: #06c8d9; /* Combina con los botones */
-}
-
-.emergency-button {
-  background: #ff4d4d;
-  color: white;
-  padding: 0.5rem 1rem;
+.btn {
+  width: 190px;
+  height: 50px;
+  border-radius: 5px;
   border: none;
-  border-radius: 0.5rem;
-  font-weight: bold;
-  transition: background 0.3s, transform 0.3s;
+  transition: all 0.5s ease-in-out;
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  background: #ff3737;
+  color: #f5f5f5;
 }
 
-.emergency-button:hover {
-  background: #d43d3d; /* Un tono más oscuro al pasar el cursor */
-  transform: scale(1.05); /* Efecto de crecimiento al pasar el cursor */
+.btn .icon {
+  position: absolute;
+  height: 40px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+}
+
+.btn .text {
+  transform: translateX(55px);
+}
+
+.btn:hover .icon {
+  width: 175px;
+}
+
+.btn:hover .text {
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active .icon {
+  transform: scale(0.85);
 }
 
 /* Hero Section */
@@ -66,15 +127,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center; /* Centra el texto */
+  text-align: center;
   position: relative;
   overflow: hidden;
 }
 
 .hero-container {
-  max-width: 1200px; /* Limita el ancho máximo del contenedor */
-  margin: 0 auto; /* Centra el contenedor */
-  z-index: 2; /* Asegura que el contenido esté por encima de la imagen */
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 2;
 }
 
 .hero-content {
@@ -85,9 +146,9 @@ body {
 
 .hero-badge {
   font-size: 1rem;
-  color: #06c8d9; /* Combina con los botones */
+  color: #06c8d9;
   font-weight: bold;
-  background: rgba(6, 200, 217, 0.1); /* Fondo suave */
+  background: rgba(6, 200, 217, 0.1);
   padding: 0.5rem 1rem;
   border-radius: 5px;
   display: inline-block;
@@ -96,14 +157,14 @@ body {
 .hero-title {
   font-size: 3rem;
   font-weight: bold;
-  color: #06c8d9; /* Combina con los botones */
+  color: #06c8d9;
 }
 
 .hero-description {
   font-size: 1.25rem;
   color: #666;
-  max-width: 600px; /* Limita el ancho del texto para mejor legibilidad */
-  margin: 0 auto; /* Centra el texto */
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .hero-image-container {
@@ -119,11 +180,11 @@ body {
 .hero-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Asegura que la imagen cubra todo el fondo */
-  opacity: 0.3; /* Añade transparencia para que el contenido sea legible */
+  object-fit: cover;
+  opacity: 0.2; 
 }
 
-/* From Uiverse.io by cssbuttons-io */ 
+/* From buttons-io */ 
 .c-button {
   color: #000;
   font-weight: 700;
@@ -135,7 +196,7 @@ body {
   vertical-align: middle;
   position: relative;
   z-index: 1;
-  margin: 5px; /* Añade un margen para evitar que se peguen entre sí */
+  margin: 5px;
 }
 
 .c-button--gooey {
@@ -146,13 +207,13 @@ body {
   border-radius: 0;
   position: relative;
   transition: all 700ms ease;
-  display: inline-block; /* Asegura que se comporten como elementos en línea */
+  display: inline-block;
 }
 
 .button-container {
   display: flex;
-  justify-content: center; /* Centra los botones horizontalmente */
-  flex-wrap: nowrap; /* Asegura que los botones no se envuelvan a la siguiente línea */
+  justify-content: center;
+  flex-wrap: nowrap;
 }
 
 .c-button--gooey .c-button__blobs {
@@ -200,28 +261,105 @@ body {
 }
  
   /* Services Section */
-  .services-section {
-    padding: 4rem 2rem;
-    background: #ffffff;
-  }
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-  }
-  .service-card {
-    padding: 1.5rem;
-    background: #f1f1f1;
-    border-radius: 0.5rem;
-    text-align: center;
-  }
-  .service-title {
-    font-weight: bold;
-    margin: 0.5rem 0;
-  }
-  
-  /* Products Section */
+.services-section .card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  padding: 2px;
+  border-radius: 24px;
+  overflow: hidden;
+  line-height: 1.6;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.services-section .content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 34px;
+  border-radius: 22px;
+  color: #ffffff;
+  overflow: hidden;
+  background: #ffffff;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.services-section .content .heading {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.3;
+  z-index: 1;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.services-section .content .para {
+  z-index: 1;
+  opacity: 0.8;
+  font-size: 18px;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.services-section .card::before {
+  content: "";
+  position: absolute;
+  height: 160%;
+  width: 160%;
+  border-radius: inherit;
+  background: #06c8d9;
+  background: linear-gradient(to right, #06c8d9, #06c8d9);
+  transform-origin: center;
+  animation: moving 4.8s linear infinite paused;
+  transition: all 0.88s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.services-section .card:hover::before {
+  animation-play-state: running;
+  z-index: -1;
+  width: 20%;
+}
+
+.services-section .card:hover .content .heading,
+.services-section .card:hover .content .para {
+  color: #000000;
+}
+
+.services-section .card:hover {
+  box-shadow: 0rem 6px 13px rgba(10, 60, 255, 0.1),
+    0rem 24px 24px rgba(10, 60, 255, 0.09),
+    0rem 55px 33px rgba(10, 60, 255, 0.05),
+    0rem 97px 39px rgba(10, 60, 255, 0.01), 0rem 152px 43px rgba(10, 60, 255, 0);
+  scale: 1.05;
+  color: #000000;
+}
+
+.services-section .services-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.services-section .section-title {
+  font-family: 'Arial', sans-serif;
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  text-align: center;
+}
+
 /* Products Section */
+.products-section .section-title {
+  font-family: 'Arial', sans-serif;
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 10px;
+  margin-top: 30px;
+  text-align: center;
+}
+
 .card-container {
   display: flex;
   justify-content: space-between;
@@ -234,8 +372,8 @@ body {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
   margin: 10px;
   padding: 20px 1px;
-  background-color: #ffffff; /* Color más suave */
-  background: linear-gradient(45deg, #ffffff 0%, #ffffff 100%); /* Fondo más suave */
+  background-color: #ffffff;
+  background: linear-gradient(45deg, #ffffff 0%, #ffffff 100%);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -250,14 +388,14 @@ body {
 }
 
 .card-container .content .price {
-  color: #333; /* Color de texto más oscuro */
+  color: #333;
   font-weight: 800;
   font-size: 50px;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .card-container .content .description {
-  color: rgba(51, 51, 51, 0.7); /* Texto más suave y contrastante */
+  color: rgba(51, 51, 51, 0.7);
   margin-top: 10px;
   font-size: 14px;
 }
@@ -265,7 +403,7 @@ body {
 .card-container .content .title {
   font-weight: 800;
   text-transform: uppercase;
-  color: rgba(51, 51, 51, 0.8); /* Texto más suave y contrastante */
+  color: rgba(51, 51, 51, 0.8);
   margin-top: 10px;
   font-size: 25px;
   letter-spacing: 1px;
@@ -277,12 +415,12 @@ body {
   user-select: none;
   border: none;
   outline: none;
-  color: #ffffff; /* Texto blanco */
+  color: #ffffff;
   text-transform: uppercase;
   font-weight: 700;
   font-size: 0.75rem;
   padding: 0.75rem 1.5rem;
-  background-color: #06c8d9; /* Fondo del botón más suave */
+  background-color: #06c8d9;
   border-radius: 0.5rem;
   width: 90%;
   text-shadow: 0px 4px 18px rgba(0, 0, 0, 0.2);
@@ -299,7 +437,7 @@ body {
   padding: 25px 25px;
   gap: 20px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
-  margin: 0 auto; /* Centra las tarjetas de redes sociales */
+  margin: 0 auto;
 }
 
 /* For all social containers */
@@ -360,17 +498,17 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 80%; /* Ajusta el ancho del formulario */
+  max-width: 80%;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
   position: relative;
-  margin: 0 auto; /* Centra el formulario */
+  margin: 0 auto;
 }
 
 .contact-section {
-  text-align: center; /* Centra todo el contenido dentro de la sección de contacto */
-  padding: 20px; /* Añade algo de espacio alrededor */
+  text-align: center;
+  padding: 20px;
 }
 
 .contact-section .section-title {
@@ -396,19 +534,19 @@ body {
   display: flex;
   width: 100%;
   gap: 6px;
-  justify-content: space-between; /* Ajusta la distribución de los campos de nombre */
+  justify-content: space-between;
 }
 
 .form label {
   position: relative;
-  flex: 1; /* Permite que los labels ocupen el mismo espacio */
+  flex: 1;
 }
 
 .form label .input {
   width: 100%;
   padding: 10px 10px 20px 10px;
   outline: 0;
-  border: 1px solid #333; /* Borde más oscuro */
+  border: 1px solid #333;
   border-radius: 5px;
 }
 
@@ -416,7 +554,7 @@ body {
   position: absolute;
   left: 10px;
   top: 15px;
-  color: #333; /* Texto más oscuro */
+  color: #333;
   font-size: 0.9em;
   cursor: text;
   transition: 0.3s ease;
@@ -442,7 +580,7 @@ body {
   width: 100%;
   padding: 10px 10px 20px 10px;
   outline: 0;
-  border: 1px solid #333; /* Borde más oscuro */
+  border: 1px solid #333;
   border-radius: 5px;
 }
 
@@ -450,7 +588,7 @@ body {
   position: absolute;
   left: 10px;
   top: 50px;
-  color: #333; /* Texto más oscuro */
+  color: #333;
   font-size: 0.9em;
   cursor: text;
   transition: 0.3s ease;
@@ -473,7 +611,7 @@ body {
 }
 
 .small-button {
-  transform: scale(0.8); /* Reduce el tamaño a un 50% */
+  transform: scale(0.8);
 }
 
 .messageBox {
@@ -599,10 +737,10 @@ body {
   
 /* Footer */
 .footer {
-  background-color: #f3f4f6; /* Fondo suave */
+  background-color: #f3f4f6;
   padding: 2rem 0;
-  color: #333; /* Texto oscuro */
-  border-top: 1px solid #ddd; /* Línea superior */
+  color: #333;
+  border-top: 1px solid #ddd;
 }
 
 .footer .container {
@@ -621,20 +759,20 @@ body {
 .footer-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #06c8d9; /* Combina con los botones */
+  color: #06c8d9;
 }
 
 .footer-description {
   margin-top: 0.5rem;
   font-size: 1rem;
-  color: #666; /* Texto más suave */
+  color: #666;
 }
 
 .footer-subtitle {
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  color: #06c8d9; /* Combina con los botones */
+  color: #06c8d9;
 }
 
 .footer-links {
@@ -650,16 +788,25 @@ body {
 }
 
 .footer-link:hover {
-  color: #06c8d9; /* Combina con los botones */
+  color: #06c8d9;
 }
 
 .footer-bottom {
   text-align: center;
   margin-top: 2rem;
   font-size: 0.875rem;
-  color: #666; /* Texto más suave */
+  color: #666;
 }
 
+  @keyframes moving {
+    0% {
+      transform: rotate(0);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
   
   @keyframes slide-in-top {
     0% {
