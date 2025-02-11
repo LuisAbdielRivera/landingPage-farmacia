@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="logo">{{ companyName }}</div>
+            <nav>
+                <ul>
+                    <li v-for="link in navLinks" :key="link.text">
+                        <a :href="link.href">{{ link.text }}</a>
+                    </li>
+                </ul>
+            </nav>
+            <input type="text" v-model="searchQuery" placeholder="Search..." class="search-box">
+        </header>
+        <section class="hero">
+            <h1>{{ title }}</h1>
+            <p>{{ subtitle }}</p>
+            <p>{{ description }}</p>
+            <button @click="showMore">Show More</button>
+        </section>
+        <section class="products">
+            <div class="discount">{{ discountText }}</div>
+            <div class="product-images">
+                <img v-for="product in products" :key="product.id" :src="product.image" :alt="product.name">
+            </div>
+        </section>
+        <footer>
+            <p>Designed by Freepik</p>
+        </footer>
+    </div>
+    
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data() {
+                return {
+                    companyName: "COMPANY NAME",
+                    title: "PHARMACY",
+                    subtitle: "Landing Page",
+                    description: "Lorem ipsum dolor sit amet, misar consectetur adipiscing elit. In viverra felis eget gravida. Nullam enim leo.",
+                    discountText: "Online Discount 50% OFF",
+                    searchQuery: "",
+                    navLinks: [
+                        { text: "Home", href: "#" },
+                        { text: "About", href: "#" },
+                        { text: "Products", href: "#" },
+                        { text: "Our Team", href: "#" },
+                        { text: "Contact", href: "#" }
+                    ],
+                    products: [
+                        { id: 1, name: "Medicine 1", image: "product1.png" },
+                        { id: 2, name: "Medicine 2", image: "product2.png" },
+                        { id: 3, name: "Medicine 3", image: "product3.png" }
+                    ]
+                };
+            },
+            methods: {
+                showMore() {
+                    alert("More details coming soon!");
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
